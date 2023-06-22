@@ -5,7 +5,7 @@ const seatRouter = express.Router();
 seatRouter.get('/seat', getSeatController);
 
 // Get Route by Id
-seatRouter.get('/seat/:id', getSeatController);
+seatRouter.get('/seat/:id', getSeatControllerById);
 
 
 module.exports = { 
