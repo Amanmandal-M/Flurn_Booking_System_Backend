@@ -1,30 +1,28 @@
 const mongoose = require("mongoose");
 
-// Define the schema
 const seatPricingSchema = new mongoose.Schema({
   id: {
     type: String,
-    required: true
+    required: true,
   },
   seat_class: {
     type: String,
-    required: true
+    required: true,
   },
   min_price: {
-    type: Number,
-    default: null
+    type: String,
+    default: null,
   },
   normal_price: {
-    type: Number,
-    required: true
+    type: String,
+    required: true,
   },
   max_price: {
-    type: Number,
-    required: true
-  }
+    type: String,
+    default: null
+  },
 });
 
-// Create a Mongoose model based on the schema
 const SeatPricingModel = mongoose.model("SeatPricing", seatPricingSchema);
 
 module.exports = { SeatPricingModel };

@@ -13,6 +13,10 @@ const seatSchema = new mongoose.Schema({
   seat_class: {
     type: String,
     required: true
+  },
+  is_booked : {
+    type: Boolean,
+    required: false
   }
 });
 

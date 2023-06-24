@@ -4,7 +4,9 @@ const colors = require("colors");
 require("dotenv").config();
 
 const { dbConnection } = require("./configs/db");
+
 const { convertCSVtoJsonRouter } = require("./routes/dataConverterRoute");
+const { seatRouter } = require("./routes/seatRouter");
 
 const app = express();
 
@@ -22,7 +24,8 @@ app.get("/", (req, res) => {
 });
 
 // API routes
-app.use("/api", convertCSVtoJsonRouter);
+app.use("/convert", convertCSVtoJsonRouter);
+app.use("/api", seatRouter);
 
 
 
