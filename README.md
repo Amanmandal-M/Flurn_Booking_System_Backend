@@ -1,4 +1,4 @@
-<h1 align="center">Booking Service Backend</h1>
+<h1 align="center"><strong>Booking Service Backend</strong></h1>
 
 ## About
 
