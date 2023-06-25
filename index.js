@@ -23,7 +23,7 @@ const options = {
     info: {
       title: "Black Coffer Backend Assignment",
       version: "1.0.0",
-      description: "This is a Blackcoffer company assignment .",
+      description: "This is a Flurn Booking Service Backend.",
     },
     servers: [
       {
