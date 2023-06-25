@@ -9,6 +9,8 @@ const { dbConnection } = require("./configs/db");
 
 const { convertCSVtoJsonRouter } = require("./routes/dataConverterRoute");
 const { seatRouter } = require("./routes/seatRouter");
+const { bookingRouter } = require("./routes/bookingRouter");
+
 
 const app = express();
 
@@ -49,6 +51,7 @@ app.get("/", (req, res) => {
 // API routes
 app.use("/convert", convertCSVtoJsonRouter);
 app.use("/api", seatRouter);
+app.use("/api", bookingRouter);
 
 
 

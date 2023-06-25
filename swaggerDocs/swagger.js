@@ -139,7 +139,7 @@
  *           schema:
  *             $ref: '#/components/schemas/Seat'
  *     responses:
- *       200:
+ *       201:
  *         description: Successful operation
  *       500:
  *         description: Internal Server Error
@@ -159,7 +159,7 @@
  *           schema:
  *             $ref: '#/components/schemas/SeatPricing'
  *     responses:
- *       200:
+ *       201:
  *         description: Successful operation
  *       500:
  *         description: Internal Server Error
@@ -203,6 +203,56 @@
  *     responses:
  *       202:
  *         description: Seat pricing deleted successfully
+ *       500:
+ *         description: Internal Server Error
+ */
+
+// ------------------------>>> Booking Routes <<<------------------------
+
+// Tags
+/**
+ * @swagger
+ * tags:
+ *   name: Booking
+ *   description: Booking API Endpoints
+ */
+
+// GET all bookings
+/**
+ * @swagger
+ * /bookings:
+ *   get:
+ *     summary: Get all bookings.
+ *     tags: [Booking]
+ *     responses:
+ *       200:
+ *         description: Successful operation
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Booking'
+ *       500:
+ *         description: Internal Server Error
+ */
+
+// POST a new booking
+/**
+ * @swagger
+ * /booking:
+ *   post:
+ *     summary: Create a new booking.
+ *     tags: [Booking]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/NewBooking'
+ *     responses:
+ *       201:
+ *         description: Successful operation
  *       500:
  *         description: Internal Server Error
  */
