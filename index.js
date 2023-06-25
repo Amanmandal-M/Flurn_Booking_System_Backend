@@ -27,7 +27,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:8080/api",
+        url: "https://flurn-booking-service.up.railway.app/api",
       },
     ],
   },

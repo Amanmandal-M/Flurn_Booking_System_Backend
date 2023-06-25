@@ -62,7 +62,7 @@ Note:
 
 <strong>
 <h2>
-<a href="https://localhost:8080/api-docs" target="_blank">Swagger</a>
+<a href="https://flurn-booking-service.up.railway.app/api-docs/" target="_blank">Swagger</a>
 </h2>
 </strong>
 
@@ -72,7 +72,7 @@ Note:
 
 <strong>
 <h2>
-<a href="https://localhost:8080/" target="_blank">Railway</a>
+<a href="https://flurn-booking-service.up.railway.app/" target="_blank">Railway</a>
 </h2>
 </strong>
 
