@@ -61,9 +61,9 @@
  *         _id: 64969f30599ac4b50a8e1a51
  *         id: "1"
  *         seat_class: "A"
- *         min_price: ""
- *         normal_price: "$397.61"
- *         max_price: "$547.20"
+ *         min_price: "$*"
+ *         normal_price: "$*"
+ *         max_price: "$*"
  */
 
 

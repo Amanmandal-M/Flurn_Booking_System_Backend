@@ -37,15 +37,10 @@ const getSeatControllerById = async (req, res) => {
     const pricing = await SeatPricingModel.findOne({ seat_class: seatClass });
 
     let price;
-    if (
-      bookingCount <
-      0.4 * SeatModel.countDocuments({ seat_class: seatClass })
-    ) {
+    const totalSeatsCount = await SeatModel.countDocuments({ seat_class: seatClass });
+    if (bookingCount < 0.4 * totalSeatsCount) {
       price = pricing.min_price || pricing.normal_price;
-    } else if (
-      bookingCount <=
-      0.6 * SeatModel.countDocuments({ seat_class: seatClass })
-    ) {
+    } else if (bookingCount <= 0.6 * totalSeatsCount) {
       price = pricing.normal_price || pricing.max_price;
     } else {
       price = pricing.max_price || pricing.normal_price;
@@ -69,7 +64,7 @@ const postSeatController = async (req, res) => {
   const payload = req.body;
   try {
     await SeatModel.insertMany(payload);
-    res.status(200).json("Seat Added successfully");
+    res.status(200).json({ message: "Seat Added successfully" });
   } catch (error) {
     console.log(colors.bgRed.white(`Error in Controllers: ${error.message}`));
     return res.status(500).json({ error: "Internal Server Error" });
@@ -81,7 +76,7 @@ const postSeatPricingController = async (req, res) => {
   const payload = req.body;
   try {
     await SeatPricingModel.insertMany(payload);
-    res.status(200).json("Seat Pricing Added successfully");
+    res.status(200).json({ message: "Seat Pricing Added successfully" });
   } catch (error) {
     console.log(colors.bgRed.white(`Error in Controllers: ${error.message}`));
     return res.status(500).json({ error: "Internal Server Error" });
@@ -100,8 +95,7 @@ const deleteSeatController = async (req, res) => {
   }
 };
 
-
-// Controller to delete a seat by its ID
+// Controller to delete a seatPricing by its ID
 const deleteSeatPricingController = async (req, res) => {
   const { id } = req.params;
   try {
