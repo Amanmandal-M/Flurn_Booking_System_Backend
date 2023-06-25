@@ -16,16 +16,16 @@ seatRouter.get("/seats", getSeatController);
 seatRouter.get("/seats/:id", getSeatControllerById);
 
 // Post Route for Seats
-seatRouter.post("/seat", postSeatController);
+seatRouter.post("/seats", postSeatController);
 
 // Post Route for SeatPricing
 seatRouter.post("/seatPricing", postSeatPricingController);
 
 // Delete Route for seats
-seatRouter.delete("/seat", deleteSeatController);
+seatRouter.delete("/seats/:id", deleteSeatController);
 
 // Delete Route for SeatPricing
-seatRouter.delete("/seatPricing", deleteSeatController);
+seatRouter.delete("/seatPricing/:id", deleteSeatController);
 
 module.exports = {
   seatRouter,

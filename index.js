@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
 const colors = require("colors");
 require("dotenv").config();
 
@@ -13,6 +15,27 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors());
+
+// --------------->>>>>>>> Swagger <<<<<<<<-------------------
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Black Coffer Backend Assignment",
+      version: "1.0.0",
+      description: "This is a Blackcoffer company assignment .",
+    },
+    servers: [
+      {
+        url: "http://localhost:8080/api",
+      },
+    ],
+  },
+  apis: ["./swaggerDocs/*.js"],
+};
+
+const specs = swaggerJsDoc(options);
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
 // Default route
 app.get("/", (req, res) => {
